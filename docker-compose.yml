@@ -1,0 +1,45 @@
+services:
+  # Database service - MongoDB container for data persistence
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Maps container port to host port
+    volumes:
+      - mongodb_data:/data/db  # Persists database data across container restarts
+    networks:
+      - app-network  # Connects to the application network
+
+  # Backend service - Spring Boot application
+  backend:
+    build:
+      context: ./backend/task-manager  # Path to backend source code
+      dockerfile: ../Dockerfile  # Path to backend Dockerfile
+    ports:
+      - "8080:8080"  # Maps container port to host port
+    depends_on:
+      - mongodb  # Ensures MongoDB starts before the backend
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/taskmanager  # Database connection string
+    networks:
+      - app-network  # Connects to the application network
+
+  # Frontend service - Angular application
+  frontend:
+    build:
+      context: ./frontend  # Path to frontend source code
+      dockerfile: Dockerfile  # Path to frontend Dockerfile
+    ports:
+      - "4200:80"  # Maps container port 80 (nginx) to host port 4200
+    depends_on:
+      - backend  # Ensures backend starts before the frontend
+    networks:
+      - app-network  # Connects to the application network
+
+# Persistent volumes configuration
+volumes:
+  mongodb_data:  # Named volume for MongoDB data persistence
+
+# Network configuration
+networks:
+  app-network:
+    driver: bridge  # Creates an isolated network for the application services

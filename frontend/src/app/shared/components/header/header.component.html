@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <!-- Application title -->
+  <span>Task Manager</span>
+  <!-- Flexible space between title and navigation buttons -->
+  <span class="spacer"></span>
+  <!-- Navigation for authenticated users -->
+  <button mat-button routerLink="/tasks" *ngIf="authService.isLoggedIn()">Tasks</button>
+  <button mat-button (click)="logout()" *ngIf="authService.isLoggedIn()">Logout</button>
+  <!-- Navigation for unauthenticated users -->
+  <button mat-button routerLink="/auth/login" *ngIf="!authService.isLoggedIn()">Login</button>
+  <button mat-button routerLink="/auth/register" *ngIf="!authService.isLoggedIn()">Register</button>
+</mat-toolbar>

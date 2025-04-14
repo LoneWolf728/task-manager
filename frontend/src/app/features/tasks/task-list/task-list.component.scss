@@ -1,0 +1,88 @@
+// Container for filter and action buttons
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+// Table base styles
+.mat-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Increase specificity for header cells */
+.mat-table .mat-header-cell,
+.mat-mdc-table .mat-mdc-header-cell {
+  padding: 8px;
+  font-weight: 700 !important; /* Use !important to override Angular Material styles */
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+// Cell styling
+.mat-cell {
+  padding: 8px;
+  
+  &.mat-column-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+// Position column styling
+.position-column {
+  flex: 0 0 40px; // Fixed width for numbering column
+  justify-content: center;
+  text-align: center;
+}
+
+// Title column styling with padding
+.title-column {
+  padding-left: 16px !important; // Add more left padding to move text away from left edge
+  text-align: left;
+}
+
+// Task status colors with bold text
+.status-todo {
+  color: #ff9800;  // Orange for To Do
+  font-weight: bold;
+}
+
+.status-in-progress {
+  color: #2196f3;  // Blue for In Progress
+  font-weight: bold;
+}
+
+.status-done {
+  color: #4caf50;  // Green for Done
+  font-weight: bold;
+}
+
+// Button styles
+.view-button {
+  color: #757575;
+}
+
+.edit-button {
+  color: #3f51b5;
+}
+
+.delete-button {
+  color: #d32f2f;
+}
+
+// Error handling styles
+.error-message {
+  color: red;
+  margin: 16px 0;
+}
+
+// Empty state styling
+.no-tasks {
+  text-align: center;
+  padding: 16px;
+  font-style: italic;
+}

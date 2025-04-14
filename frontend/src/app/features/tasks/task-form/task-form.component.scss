@@ -1,0 +1,21 @@
+.task-form-card {
+  max-width: 600px;            // Limit card width
+  margin: 20px auto;           // Center the card with margin
+  padding: 20px;               // Add internal padding
+}
+
+mat-form-field {
+  width: 100%;                 // Make form fields take full width
+  margin-bottom: 10px;         // Add spacing between fields
+}
+
+.form-actions {
+  display: flex;               // Use flexbox for button layout
+  justify-content: flex-end;   // Align buttons to right side
+  gap: 10px;                   // Add spacing between buttons
+}
+
+mat-error {
+  font-size: 12px;             // Smaller font for error messages
+  color: #d32f2f;              // Red color for errors
+}

@@ -1,0 +1,24 @@
+.auth-card {
+  max-width: 400px;          // Limit card width
+  margin: 50px auto;         // Center card with top margin for spacing
+  padding: 20px;             // Internal padding
+}
+
+mat-form-field {
+  width: 100%;               // Make form fields take full width
+  margin-bottom: 10px;       // Add spacing between fields
+}
+
+button {
+  width: 100%;               // Make buttons full width
+  margin-top: 10px;          // Add top spacing for buttons
+}
+
+mat-error {
+  margin-bottom: 10px;       // Space below error messages
+}
+
+.register-link {
+  margin-top: 20px;          // Space above register link
+  text-align: center;        // Center the text
+}

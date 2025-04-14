@@ -1,0 +1,31 @@
+<mat-card class="task-detail-card" *ngIf="task">
+  <!-- Task title in card header -->
+  <mat-card-header>
+    <mat-card-title>{{ task.title }}</mat-card-title>
+  </mat-card-header>
+  
+  <!-- Task details content section -->
+  <mat-card-content>
+    <p><strong>Description:</strong> {{ task.description || 'None' }}</p>
+    <p><strong>Status:</strong> {{ task.status | statusFormat }}</p>
+    <p><strong>Created At:</strong> {{ task.createdAt | date:'medium' }}</p>
+  </mat-card-content>
+  
+  <!-- Action buttons -->
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [routerLink]="['/tasks/edit', task.id]">
+      Edit
+    </button>
+    <button mat-button routerLink="/tasks">Back</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Loading state or not found message when task is null -->
+<mat-card class="task-detail-card" *ngIf="!task">
+  <mat-card-content>
+    <p>Task not found or still loading...</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/tasks">Back to Tasks</button>
+  </mat-card-actions>
+</mat-card>

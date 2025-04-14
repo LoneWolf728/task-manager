@@ -1,0 +1,49 @@
+<mat-card class="task-form-card">
+  <!-- Card header with dynamic title based on mode -->
+  <mat-card-header>
+    <mat-card-title>{{ isEditMode ? 'Edit Task' : 'Create Task' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Task form with validation -->
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <!-- Title field with validation -->
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" maxlength="25" required />
+        <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+          Title is required
+        </mat-error>
+        <mat-error *ngIf="taskForm.get('title')?.hasError('maxlength')">
+          Title cannot exceed 25 characters
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- Description field with validation -->
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" maxlength="500" rows="4"></textarea>
+        <mat-error *ngIf="taskForm.get('description')?.hasError('maxlength')">
+          Description cannot exceed 500 characters
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- Status dropdown -->
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let status of taskStatus | keyvalue" [value]="status.value">
+            {{ status.value | statusFormat }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <!-- Form action buttons -->
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+          {{ isEditMode ? 'Update' : 'Create' }}
+        </button>
+        <button mat-button routerLink="/tasks">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
