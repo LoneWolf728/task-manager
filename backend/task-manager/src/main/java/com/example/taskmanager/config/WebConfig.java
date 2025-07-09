@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://task-manager-7n037sh95-lykos-projects-3064553d.vercel.app")
+                        .allowedOrigins("https://task-manager-fdvoxsc2w-lykos-projects-3064553d.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
