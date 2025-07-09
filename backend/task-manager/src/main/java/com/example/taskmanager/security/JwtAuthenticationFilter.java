@@ -73,6 +73,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return path.startsWith("/api/auth/");
+    }
+
     /**
      * Extracts JWT token from the HTTP request.
      * Looks for the token in the Authorization header with Bearer prefix.
