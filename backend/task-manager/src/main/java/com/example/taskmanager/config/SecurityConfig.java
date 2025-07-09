@@ -61,6 +61,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow all OPTIONS requests
                         .requestMatchers("/api/auth/**").permitAll() // Public auth endpoints
+                        .requestMatchers("/auth/**").permitAll() // Add this line for frontend calls
                         .anyRequest().authenticated() // All other endpoints require authentication
                 );
 
