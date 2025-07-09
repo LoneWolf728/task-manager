@@ -3,6 +3,6 @@
  * Contains environment-specific variables used throughout the application
  */
 export const environment = {
-  production: true,
-  apiUrl: process.env['NG_APP_API_URL'] || 'https://task-manager-heroku-7528c7041b91.herokuapp.com'
+  production: false,  // Flag indicating this is not the production environment
+  apiUrl: 'http://localhost:8080/api',  // Base URL for API requests in development environment
 };
