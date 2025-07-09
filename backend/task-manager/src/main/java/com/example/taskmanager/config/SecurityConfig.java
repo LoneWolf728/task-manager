@@ -63,9 +63,11 @@ public class SecurityConfig {
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow all OPTIONS requests
-                        .requestMatchers("/api/auth/**").permitAll() // Public auth endpoints
-                        .requestMatchers("/auth/**").permitAll() // Add this line for frontend calls
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/tasks/**").authenticated() // Add this line
+                        .requestMatchers("/api/tasks/**").authenticated() // Keep existing
                         .anyRequest().authenticated() // All other endpoints require authentication
                 );
 
