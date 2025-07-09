@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build task-manager",
+    "build": "ng build frontend",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:task-manager": "node dist/task-manager/server/server.mjs"
