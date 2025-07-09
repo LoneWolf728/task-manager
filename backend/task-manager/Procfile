@@ -1,0 +1,1 @@
+web: java -jar target/task-manager-0.0.1-SNAPSHOT.jar
