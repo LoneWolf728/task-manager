@@ -15,37 +15,19 @@ import jakarta.validation.Valid;
  */
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*")
 public class AuthControllerDirect {
 
     private final AuthService authService;
 
-    /**
-     * Constructs AuthControllerDirect with required auth service.
-     * 
-     * @param authService Service handling authentication business logic
-     */
     public AuthControllerDirect(AuthService authService) {
         this.authService = authService;
     }
 
-    /**
-     * Authenticates a user and returns JWT token.
-     * 
-     * @param loginRequest User credentials with username and password
-     * @return JWT token response for authenticated user
-     */
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(authService.login(loginRequest));
     }
 
-    /**
-     * Registers a new user in the system.
-     * 
-     * @param registerRequest New user details with username and password
-     * @return Empty response with 200 OK status on successful registration
-     */
     @PostMapping("/register")
     public ResponseEntity<Void> register(@Valid @RequestBody RegisterRequest registerRequest) {
         authService.register(registerRequest);
