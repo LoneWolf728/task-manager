@@ -1,29 +1,45 @@
-// Container for filter and action buttons
+// Container for filter and action buttons with glassy effect
 .filter-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-// Table base styles
+// Glassy table container
 .mat-table {
   width: 100%;
   overflow-x: auto;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Increase specificity for header cells */
+/* Header styling with glassy effect */
 .mat-table .mat-header-cell,
 .mat-mdc-table .mat-mdc-header-cell {
-  padding: 8px;
-  font-weight: 700 !important; /* Use !important to override Angular Material styles */
+  padding: 16px;
+  font-weight: 600 !important;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.87);
+  color: white !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-// Cell styling
+// Cell styling with glassy effect
 .mat-cell {
-  padding: 8px;
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   
   &.mat-column-actions {
     display: flex;
@@ -32,57 +48,116 @@
   }
 }
 
+// Row hover effects
+.mat-row:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
 // Position column styling
 .position-column {
-  flex: 0 0 40px; // Fixed width for numbering column
+  flex: 0 0 60px;
   justify-content: center;
   text-align: center;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-// Title column styling with padding
+// Title column styling
 .title-column {
-  padding-left: 16px !important; // Add more left padding to move text away from left edge
+  padding-left: 16px !important;
   text-align: left;
+  font-weight: 500;
 }
 
-// Task status colors with bold text
+// Enhanced task status colors with glassy badges
 .status-todo {
-  color: #ff9800;  // Orange for To Do
-  font-weight: bold;
+  background: rgba(255, 152, 0, 0.2);
+  color: #ffb74d !important;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .status-in-progress {
-  color: #2196f3;  // Blue for In Progress
-  font-weight: bold;
+  background: rgba(33, 150, 243, 0.2);
+  color: #64b5f6 !important;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .status-done {
-  color: #4caf50;  // Green for Done
-  font-weight: bold;
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784 !important;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  backdrop-filter: blur(10px);
 }
 
-// Button styles
+// Enhanced button styles
 .view-button {
-  color: #757575;
+  background: rgba(117, 117, 117, 0.2) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(117, 117, 117, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 .edit-button {
-  color: #3f51b5;
+  background: rgba(63, 81, 181, 0.2) !important;
+  color: #9fa8da !important;
+  border: 1px solid rgba(63, 81, 181, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
 .delete-button {
-  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.2) !important;
+  color: #ef5350 !important;
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.view-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 // Error handling styles
 .error-message {
-  color: red;
+  background: rgba(244, 67, 54, 0.15);
+  color: #ff8a80 !important;
+  padding: 1rem;
+  border-radius: 12px;
   margin: 16px 0;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.1);
 }
 
 // Empty state styling
 .no-tasks {
   text-align: center;
-  padding: 16px;
+  padding: 3rem;
   font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  margin: 2rem 0;
 }

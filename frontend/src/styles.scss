@@ -55,6 +55,20 @@ body {
   animation: fadeInUp 0.6s ease-out;
 }
 
+/* Task form specific styling */
+.task-form-card {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  padding: 2rem !important;
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
 /* Animation keyframes */
 @keyframes fadeInUp {
   from {
@@ -97,6 +111,35 @@ body {
 
 .mat-mdc-input-element {
   color: white !important;
+}
+
+/* Textarea styling for task descriptions */
+.mat-mdc-form-field textarea.mat-mdc-input-element {
+  color: white !important;
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Select dropdown styling */
+.mat-mdc-select {
+  color: white !important;
+}
+
+.mat-mdc-select-value {
+  color: white !important;
+}
+
+.mat-mdc-select-arrow {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Date picker styling */
+.mat-datepicker-input {
+  color: white !important;
+}
+
+.mat-datepicker-toggle {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* Button styling */

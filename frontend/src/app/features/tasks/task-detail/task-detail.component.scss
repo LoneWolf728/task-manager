@@ -1,15 +1,132 @@
 .task-detail-card {
-  max-width: 600px;          // Limit card width
-  margin: 20px auto;         // Center the card with margin
-  padding: 20px;             // Add internal padding
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 2rem !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  animation: fadeInUp 0.6s ease-out;
 }
 
-mat-card-content p {
-  margin: 10px 0;            // Add vertical spacing between paragraphs
+.mat-mdc-card-title {
+  color: white !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.5rem !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-mat-card-actions {
-  display: flex;             // Use flexbox for button layout
-  justify-content: flex-end; // Align buttons to right side
-  gap: 10px;                 // Add spacing between buttons
+.mat-mdc-card-content {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mat-mdc-card-content p {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.mat-mdc-card-content p:last-child {
+  border-bottom: none;
+}
+
+.mat-mdc-card-content strong {
+  color: white;
+  font-weight: 600;
+}
+
+.mat-mdc-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 1.5rem 0 0 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+}
+
+.mat-mdc-card-actions .mat-mdc-button {
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mat-mdc-card-actions .mat-mdc-button:first-child {
+  background: rgba(63, 81, 181, 0.2) !important;
+  color: #9fa8da !important;
+  border: 1px solid rgba(63, 81, 181, 0.3);
+}
+
+.mat-mdc-card-actions .mat-mdc-button:last-child {
+  background: rgba(117, 117, 117, 0.2) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(117, 117, 117, 0.3);
+}
+
+.mat-mdc-card-actions .mat-mdc-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+// Status styling within task detail
+.task-status {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  margin-left: 10px;
+}
+
+.task-status.todo {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ffb74d;
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.task-status.in-progress {
+  background: rgba(33, 150, 243, 0.2);
+  color: #64b5f6;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.task-status.done {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+// Priority styling
+.task-priority {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  margin-left: 10px;
+}
+
+.task-priority.high {
+  background: rgba(244, 67, 54, 0.2);
+  color: #ff8a80;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.task-priority.medium {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffcc02;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.task-priority.low {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.3);
 }
