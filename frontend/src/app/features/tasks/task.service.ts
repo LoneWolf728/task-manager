@@ -11,7 +11,8 @@ import { Task, TaskStatus } from '../../core/models/task.model';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = `${environment.apiUrl}/tasks`;
+  // Update the base API URL to include the correct path
+  private apiUrl = `${environment.apiUrl}/api/tasks`;
 
   constructor(private http: HttpClient) {}
 

@@ -54,14 +54,14 @@
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let task">
-      <button mat-icon-button class="view-button" (click)="viewTask(task.id)" aria-label="View task" matTooltip="View">
+    <mat-cell *matCellDef="let task" class="actions-column">
+      <button mat-icon-button class="view-button" [routerLink]="['/tasks/view', task.id]" matTooltip="View task">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button mat-icon-button class="edit-button" (click)="editTask(task.id)" aria-label="Edit task" matTooltip="Edit">
+      <button mat-icon-button class="edit-button" [routerLink]="['/tasks/edit', task.id]" matTooltip="Edit task">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button class="delete-button" (click)="deleteTask(task.id)" aria-label="Delete task" matTooltip="Delete">
+      <button mat-icon-button class="delete-button" (click)="deleteTask(task.id)" matTooltip="Delete task">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>

@@ -1,158 +1,374 @@
-// Container for filter and action buttons with glassy effect
+// Main container for the entire task list component
+.task-list-container {
+  width: 100%; // Use 100% of available width, not viewport width
+  max-width: 1400px; // Set a reasonable maximum width
+  margin: 0 auto; // Center the container
+  padding: 2rem; // Normal padding
+  box-sizing: border-box;
+}
+
+// Filter container with glassy effect
 .filter-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; // Ensure vertical alignment
   margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
-  padding: 1rem;
+  padding: 1.5rem 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 2rem; // Add space between filter and button
 }
 
-// Glassy table container
-.mat-table {
-  width: 100%;
-  overflow-x: auto;
-  background: rgba(255, 255, 255, 0.1) !important;
+// Filter form field styling - white text and proper alignment
+.filter-container mat-form-field {
+  min-width: 180px; // Reduced from 200px
+  max-width: 250px; // Add max-width to prevent it from getting too large
+  flex-shrink: 0; // Prevent shrinking
+  align-self: center; // Force center alignment
+}
+
+// Force the form field to have consistent height and remove margin
+::ng-deep .filter-container .mat-mdc-form-field {
+  margin: 0 !important; // Remove any default margin
+  vertical-align: middle !important;
+}
+
+::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-wrapper {
+  height: 40px !important;
+  padding: 0 !important; // Remove padding that might affect alignment
+}
+
+::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-flex {
+  height: 40px !important;
+  align-items: center !important;
+  padding: 0 !important; // Remove padding that might affect alignment
+}
+
+// Remove any bottom margin/padding from the form field
+::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-subscript-wrapper {
+  display: none !important; // Hide subscript area that might cause alignment issues
+}
+
+// White text styling for all filter elements - more specific selectors
+::ng-deep .filter-container .mat-mdc-form-field .mdc-floating-label {
+  color: rgba(255, 255, 255, 0.8) !important; // Label when not focused
+}
+
+::ng-deep .filter-container .mat-mdc-form-field .mdc-floating-label--float-above {
+  color: white !important; // Label when floating/focused
+}
+
+::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-label {
+  color: white !important;
+}
+
+::ng-deep .filter-container .mat-mdc-select-value {
+  color: white !important;
+}
+
+::ng-deep .filter-container .mat-mdc-select-value-text {
+  color: white !important;
+}
+
+::ng-deep .filter-container .mat-mdc-select-arrow {
+  color: white !important;
+}
+
+// Border styling - more specific for Material components
+::ng-deep .filter-container .mat-mdc-form-field .mdc-notched-outline {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+::ng-deep .filter-container .mat-mdc-form-field .mdc-notched-outline__leading,
+::ng-deep .filter-container .mat-mdc-form-field .mdc-notched-outline__notch,
+::ng-deep .filter-container .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+// When focused - solid white borders
+::ng-deep .filter-container .mat-mdc-form-field.mat-focused .mdc-notched-outline {
+  border-color: white !important;
+}
+
+::ng-deep .filter-container .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .filter-container .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .filter-container .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: white !important;
+}
+
+// Remove the old conflicting styles
+// ::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-outline {
+//   background: rgba(255, 255, 255, 0.1) !important;
+//   border-radius: 12px !important;
+// }
+
+// ::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-outline-thick {
+//   border-color: white !important;
+// }
+
+// Alternative approach - force styles with higher specificity
+::ng-deep .task-list-container .filter-container .mat-mdc-form-field .mdc-floating-label {
+  color: white !important;
+}
+
+::ng-deep .task-list-container .filter-container .mat-mdc-form-field .mdc-notched-outline__leading,
+::ng-deep .task-list-container .filter-container .mat-mdc-form-field .mdc-notched-outline__notch,
+::ng-deep .task-list-container .filter-container .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: white !important;
+}
+
+// Table container with full width
+.table-container {
+  width: 100% !important;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; // Allow horizontal scrolling if needed
+  animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
-/* Header styling with glassy effect */
-.mat-table .mat-header-cell,
-.mat-mdc-table .mat-mdc-header-cell {
-  padding: 16px;
+// Table styling - proper width management
+.mat-mdc-table {
+  width: 100% !important;
+  min-width: 1000px !important; // Increased minimum width to accommodate larger title column
+  background: transparent !important;
+  color: white !important;
+  table-layout: auto !important; // Let table adjust column widths automatically
+}
+
+// Column width distribution - balanced approach with wider title
+::ng-deep .mat-column-position {
+  width: 80px !important;
+}
+
+::ng-deep .mat-column-title {
+  width: 40% !important; // Reduced slightly to make room for status
+  min-width: 300px !important;
+}
+
+::ng-deep .mat-column-status {
+  width: 220px !important; // Increased significantly from 180px to 220px
+}
+
+::ng-deep .mat-column-createdAt {
+  width: 180px !important;
+}
+
+::ng-deep .mat-column-actions {
+  width: 220px !important;
+  min-width: 220px !important;
+}
+
+// Header styling with reasonable padding
+::ng-deep .mat-mdc-header-cell {
+  padding: 20px 16px !important; // Reasonable padding
   font-weight: 600 !important;
-  font-size: 14px;
+  font-size: 14px !important;
   color: white !important;
   background: rgba(255, 255, 255, 0.05) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-// Cell styling with glassy effect
-.mat-cell {
-  padding: 16px;
+// Cell styling with reasonable padding
+::ng-deep .mat-mdc-cell {
+  padding: 20px 16px !important; // Match header padding
   color: rgba(255, 255, 255, 0.9) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  
-  &.mat-column-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 // Row hover effects
-.mat-row:hover {
-  background: rgba(255, 255, 255, 0.05) !important;
+::ng-deep .mat-mdc-row {
+  height: auto !important;
+  min-height: 60px !important; // Reasonable row height
+}
+
+::ng-deep .mat-mdc-row:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
   transform: translateY(-1px);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-// Position column styling
+// Position column
 .position-column {
-  flex: 0 0 60px;
-  justify-content: center;
-  text-align: center;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  text-align: center !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 16px !important;
 }
 
-// Title column styling
+// Title column with reasonable spacing
 .title-column {
-  padding-left: 16px !important;
-  text-align: left;
-  font-weight: 500;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  word-wrap: break-word !important;
 }
 
-// Enhanced task status colors with glassy badges
+// Status badges - all same width with centered text
 .status-todo {
+  display: inline-block;
   background: rgba(255, 152, 0, 0.2);
   color: #ffb74d !important;
-  padding: 4px 12px;
+  padding: 8px 12px; // Consistent padding
   border-radius: 20px;
   font-weight: 600;
+  font-size: 12px;
   border: 1px solid rgba(255, 152, 0, 0.3);
   backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 120px !important; // Fixed width for all badges
+  text-align: center !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
 }
 
 .status-in-progress {
+  display: inline-block;
   background: rgba(33, 150, 243, 0.2);
   color: #64b5f6 !important;
-  padding: 4px 12px;
+  padding: 8px 12px; // Consistent padding
   border-radius: 20px;
   font-weight: 600;
+  font-size: 12px;
   border: 1px solid rgba(33, 150, 243, 0.3);
   backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 120px !important; // Fixed width for all badges
+  text-align: center !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
 }
 
 .status-done {
+  display: inline-block;
   background: rgba(76, 175, 80, 0.2);
   color: #81c784 !important;
-  padding: 4px 12px;
+  padding: 8px 12px; // Consistent padding
   border-radius: 20px;
   font-weight: 600;
+  font-size: 12px;
   border: 1px solid rgba(76, 175, 80, 0.3);
   backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 120px !important; // Fixed width for all badges
+  text-align: center !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
 }
 
-// Enhanced button styles
+// Action buttons with reasonable spacing
+.actions-column {
+  text-align: center !important;
+  white-space: nowrap !important; // Prevent wrapping
+}
+
 .view-button {
   background: rgba(117, 117, 117, 0.2) !important;
   color: #e0e0e0 !important;
-  border: 1px solid rgba(117, 117, 117, 0.3);
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(117, 117, 117, 0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  margin: 0 3px !important; // Reduced margin for better fit
+  width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important; // Remove default padding
 }
 
 .edit-button {
   background: rgba(63, 81, 181, 0.2) !important;
   color: #9fa8da !important;
-  border: 1px solid rgba(63, 81, 181, 0.3);
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(63, 81, 181, 0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  margin: 0 3px !important; // Reduced margin for better fit
+  width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important; // Remove default padding
 }
 
 .delete-button {
   background: rgba(211, 47, 47, 0.2) !important;
   color: #ef5350 !important;
-  border: 1px solid rgba(211, 47, 47, 0.3);
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(211, 47, 47, 0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  margin: 0 3px !important; // Reduced margin for better fit
+  width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important; // Remove default padding
+}
+
+// Center the Material icons inside buttons
+::ng-deep .view-button .mat-icon,
+::ng-deep .edit-button .mat-icon,
+::ng-deep .delete-button .mat-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
 }
 
 .view-button:hover,
 .edit-button:hover,
 .delete-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-// Error handling styles
+// Error message styling
 .error-message {
   background: rgba(244, 67, 54, 0.15);
-  color: #ff8a80 !important;
-  padding: 1rem;
-  border-radius: 12px;
-  margin: 16px 0;
+  color: #ff4757 !important;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 2rem 0;
   border: 1px solid rgba(244, 67, 54, 0.3);
   backdrop-filter: blur(20px);
   box-shadow: 0 4px 15px rgba(244, 67, 54, 0.1);
+  font-weight: 500;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+  font-size: 16px;
 }
 
 // Empty state styling
 .no-tasks {
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 2rem;
   font-style: italic;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.05);
@@ -160,4 +376,204 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   margin: 2rem 0;
+  font-size: 18px;
+  animation: fadeInUp 0.6s ease-out;
+  width: 100%; // Make sure it's full width
+  box-sizing: border-box; // Include padding in width calculation
+  display: flex; // Use flexbox for layout
+  flex-direction: column; // Stack items vertically
+  align-items: center; // Center items horizontally
+  justify-content: center; // Center items vertically
+  gap: 1.5rem; // Add space between message and button
+}
+
+.no-tasks p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+// Add button inside no-tasks
+.no-tasks button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 8px 24px !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  height: 44px !important;
+  white-space: nowrap !important;
+}
+
+.no-tasks button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+// Responsive design for large screens
+@media (min-width: 1200px) {
+  .task-list-container {
+    max-width: 1400px;
+    padding: 2rem;
+  }
+  
+  .filter-container {
+    gap: 3rem; // More space on large screens
+  }
+  
+  .filter-container mat-form-field {
+    min-width: 200px;
+    max-width: 280px;
+  }
+  
+  .filter-container button {
+    padding: 10px 20px !important; // Slightly larger on big screens
+    font-size: 14px !important;
+    height: 44px !important;
+    min-width: 120px !important;
+    max-width: 140px !important; // Still controlled width
+  }
+  
+  ::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-wrapper,
+  ::ng-deep .filter-container .mat-mdc-form-field .mat-mdc-form-field-flex {
+    height: 44px !important;
+  }
+  
+  ::ng-deep .mat-mdc-header-cell,
+  ::ng-deep .mat-mdc-cell {
+    padding: 24px 20px !important;
+    font-size: 15px;
+  }
+  
+  ::ng-deep .mat-column-title {
+    width: 45% !important;
+    min-width: 350px !important;
+  }
+  
+  ::ng-deep .mat-column-status {
+    width: 250px !important;
+  }
+  
+  ::ng-deep .mat-column-actions {
+    width: 240px !important;
+  }
+  
+  // Larger status badges on big screens
+  .status-todo,
+  .status-in-progress,
+  .status-done {
+    width: 140px !important; // Larger width on big screens
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  .view-button,
+  .edit-button,
+  .delete-button {
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 5px !important;
+  }
+  
+  // Larger icons on big screens
+  ::ng-deep .view-button .mat-icon,
+  ::ng-deep .edit-button .mat-icon,
+  ::ng-deep .delete-button .mat-icon {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 22px !important;
+  }
+}
+
+// Responsive design for medium screens
+@media (max-width: 1199px) {
+  .task-list-container {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  
+  .filter-container mat-form-field {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+  }
+  
+  .filter-container button {
+    width: 100%; // Full width on medium screens when stacked
+    height: 44px !important;
+    justify-content: center;
+    min-width: auto !important;
+    max-width: none !important;
+  }
+  
+  ::ng-deep .mat-mdc-header-cell,
+  ::ng-deep .mat-mdc-cell {
+    padding: 24px 20px !important;
+    font-size: 15px;
+  }
+  
+  ::ng-deep .mat-column-title {
+    width: 35% !important;
+    min-width: 250px !important;
+  }
+  
+  ::ng-deep .mat-column-status {
+    width: 200px !important;
+  }
+  
+  // Medium size status badges
+  .status-todo,
+  .status-in-progress,
+  .status-done {
+    width: 110px !important; // Medium width
+    padding: 8px 10px !important;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .filter-container mat-form-field {
+    min-width: auto;
+  }
+}
+
+// Responsive design for small screens
+@media (max-width: 768px) {
+  .task-list-container {
+    padding: 1rem;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .filter-container mat-form-field {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .filter-container button {
+    width: 100%; // Full width on mobile when stacked
+    height: 42px !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    min-width: auto !important;
+    max-width: none !important;
+  }
+  
+  // ... rest of mobile screen styles
 }

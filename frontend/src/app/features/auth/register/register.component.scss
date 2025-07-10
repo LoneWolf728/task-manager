@@ -9,6 +9,138 @@ mat-form-field {
   margin-bottom: 10px;       // Add spacing between fields
 }
 
+// More specific selectors to override global styles
+::ng-deep .auth-card .mat-mdc-form-field-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field-label.mdc-floating-label--float-above {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+::ng-deep .auth-card .mat-mdc-input-element {
+  color: white !important;
+  caret-color: white !important;
+  background-color: transparent !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field-input-control input {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+// Override placeholder text color
+::ng-deep .auth-card .mat-mdc-input-element::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+// Override form field outline colors - make them white like task form
+::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__leading,
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__notch,
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+// When focused - solid white borders
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline {
+  border-color: white !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: white !important;
+}
+
+// Remove old outline styles
+// ::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline-thick {
+//   border-color: rgba(255, 255, 255, 0.3) !important;
+// }
+
+// ::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline-start,
+// ::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline-end {
+//   border-color: rgba(255, 255, 255, 0.2) !important;
+// }
+
+// ::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline-gap {
+//   border-color: rgba(255, 255, 255, 0.2) !important;
+// }
+
+// Input field background - make it transparent like task form
+::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-flex {
+  background: transparent !important; // Remove any background
+  border-radius: 8px;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-wrapper {
+  background: transparent !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-infix {
+  background: transparent !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mat-mdc-form-field-outline {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__leading,
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__notch,
+::ng-deep .auth-card .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+// When focused - solid white borders
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline {
+  border-color: white !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: white !important;
+}
+
+// Override focused state
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mat-mdc-form-field-label {
+  color: white !important;
+}
+
+::ng-deep .auth-card .mat-mdc-form-field.mat-focused .mat-mdc-form-field-outline-thick {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+// Override any black text color
+::ng-deep .auth-card .mat-mdc-form-field-label-wrapper .mat-mdc-form-field-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+::ng-deep .auth-card .mdc-text-field--outlined .mdc-text-field__input {
+  color: white !important;
+}
+
+::ng-deep .auth-card .mdc-text-field--outlined .mdc-floating-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+::ng-deep .auth-card .mdc-text-field--outlined.mdc-text-field--focused .mdc-floating-label {
+  color: white !important;
+}
+
 button {
   width: 100%;               // Make buttons full width
   margin-top: 10px;          // Add top spacing for buttons
@@ -16,9 +148,31 @@ button {
 
 mat-error {
   margin-bottom: 10px;       // Space below error messages
+  color: #ff3838 !important; // Bright red error color
+  font-weight: 700 !important; // Bold text
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important; // Text shadow for better visibility
+}
+
+// Override Material error styling specifically
+::ng-deep .auth-card .mat-mdc-form-field-error {
+  color: #ff3838 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
 }
 
 .login-link {
   margin-top: 20px;          // Space above login link
   text-align: center;        // Center the text
+  
+  a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+    
+    &:hover {
+      color: white !important;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  }
 }

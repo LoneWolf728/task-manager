@@ -2,6 +2,23 @@
   max-width: 600px;            // Limit card width
   margin: 20px auto;           // Center the card with margin
   padding: 20px;               // Add internal padding
+  background: rgba(255, 255, 255, 0.1) !important; // Glass effect background
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  color: white !important;
+}
+
+// Card header styling
+::ng-deep .task-form-card .mat-mdc-card-header {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-card-title {
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
 }
 
 mat-form-field {
@@ -9,13 +26,208 @@ mat-form-field {
   margin-bottom: 10px;         // Add spacing between fields
 }
 
+// White text styling for all form elements
+::ng-deep .task-form-card .mat-mdc-form-field-label {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-select-value {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-select-value-text {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-select-arrow {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-input-element {
+  color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-form-field textarea {
+  color: white !important;
+}
+
+// Floating labels
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-floating-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-floating-label--float-above {
+  color: white !important;
+}
+
+// Border styling - white borders
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-notched-outline {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-notched-outline__leading,
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-notched-outline__notch,
+::ng-deep .task-form-card .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+// When focused - solid white borders
+::ng-deep .task-form-card .mat-mdc-form-field.mat-focused .mdc-notched-outline {
+  border-color: white !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .task-form-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .task-form-card .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: white !important;
+}
+
+// Input field background - make it transparent
+::ng-deep .task-form-card .mat-mdc-form-field .mat-mdc-form-field-flex {
+  background: transparent !important; // Remove the white hue
+  border-radius: 8px;
+}
+
+// Also ensure the input wrapper is transparent
+::ng-deep .task-form-card .mat-mdc-form-field .mat-mdc-form-field-wrapper {
+  background: transparent !important;
+}
+
+// And the input element itself
+::ng-deep .task-form-card .mat-mdc-form-field .mat-mdc-form-field-infix {
+  background: transparent !important;
+}
+
+// Style the dropdown panel when opened
+::ng-deep .mat-mdc-select-panel {
+  background: rgba(30, 30, 30, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .mat-mdc-option {
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-option:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item--selected {
+  background: rgba(102, 126, 234, 0.3) !important;
+}
+
+// Placeholder text styling
+::ng-deep .task-form-card .mat-mdc-input-element::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
 .form-actions {
   display: flex;               // Use flexbox for button layout
   justify-content: flex-end;   // Align buttons to right side
   gap: 10px;                   // Add spacing between buttons
+  margin-top: 20px;            // Add space above buttons
+  align-items: baseline !important; // Try baseline instead of center
+}
+
+// Force both button types to have exact same styling
+::ng-deep .task-form-card .mat-mdc-raised-button,
+::ng-deep .task-form-card .mat-mdc-button {
+  height: 40px !important; 
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 0 20px !important; 
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: top !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+
+// Specific styling for raised button (Create/Save)
+::ng-deep .task-form-card .mat-mdc-raised-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+  border: none !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-raised-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+// Specific styling for flat button (Cancel)
+::ng-deep .task-form-card .mat-mdc-button {
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  background: transparent !important;
+}
+
+::ng-deep .task-form-card .mat-mdc-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+// Disabled button styling
+::ng-deep .task-form-card .mat-mdc-raised-button:disabled {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: none !important;
+}
+
+// Force button content alignment
+::ng-deep .task-form-card .mat-mdc-button .mdc-button__label,
+::ng-deep .task-form-card .mat-mdc-raised-button .mdc-button__label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  line-height: 1 !important;
+}
+
+// Remove any default margins/padding from button wrappers
+::ng-deep .task-form-card .mat-mdc-button .mat-mdc-button-touch-target,
+::ng-deep .task-form-card .mat-mdc-raised-button .mat-mdc-button-touch-target {
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 mat-error {
   font-size: 12px;             // Smaller font for error messages
-  color: #d32f2f;              // Red color for errors
+  color: #ff4757 !important;   // Red color for errors
+  font-weight: 500 !important;
+}
+
+// Card content styling
+::ng-deep .task-form-card .mat-mdc-card-content {
+  color: white !important;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .task-form-card {
+    margin: 10px;
+    padding: 15px;
+    max-width: none;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch !important; // Full width on mobile
+  }
+  
+  .form-actions button {
+    width: 100%;
+    height: 44px !important; // Slightly larger on mobile
+  }
 }

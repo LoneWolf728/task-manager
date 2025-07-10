@@ -37,3 +37,38 @@ span:first-child {
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+// Global dialog styling for glassmorphism effect
+::ng-deep .glassmorphism-dialog {
+  background: transparent !important;
+}
+
+::ng-deep .glassmorphism-dialog .mat-mdc-dialog-surface {
+  background: rgba(30, 30, 30, 0.8) !important; // Dark background for contrast
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+::ng-deep .glassmorphism-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+::ng-deep .glassmorphism-backdrop {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+::ng-deep .glassmorphism-dialog .mat-mdc-dialog-content {
+  color: white !important;
+}
+
+::ng-deep .glassmorphism-dialog .mat-mdc-dialog-title {
+  color: white !important;
+}
+
+// Override Material's default white background
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: transparent !important;
+}

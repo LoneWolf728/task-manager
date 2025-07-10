@@ -11,12 +11,16 @@
     <p><strong>Created At:</strong> {{ task.createdAt | date:'medium' }}</p>
   </mat-card-content>
   
-  <!-- Action buttons -->
+  <!-- Action buttons with wrappers for consistent height -->
   <mat-card-actions>
-    <button mat-raised-button color="primary" [routerLink]="['/tasks/edit', task.id]">
-      Edit
-    </button>
-    <button mat-button routerLink="/tasks">Back</button>
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" [routerLink]="['/tasks/edit', task.id]">
+        Edit
+      </button>
+    </div>
+    <div class="button-wrapper">
+      <button mat-button routerLink="/tasks">Back</button>
+    </div>
   </mat-card-actions>
 </mat-card>
 
